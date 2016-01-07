@@ -1,0 +1,98 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div ng-controller="mvcCRUDCtrl">
+    <div class="divList">
+        <p><b><i>Book List</i></b></p>
+        <table class="table table-hover">
+            <tr>
+                <td><b>ID</b></td>
+                <td><b>Title</b></td>
+                <td><b>Author</b></td>
+                <td><b>Publisher</b></td>
+                <td><b>Isbn</b></td>
+                <td><b>Action</b></td>
+            </tr>
+            <tr ng-repeat="book in books">
+                <td>{{book.Id}}</td>
+                <td>{{book.Title}}</td>
+                <td>{{book.Author}}</td>
+                <td>{{book.Publisher}}</td>
+                <td>{{book.Isbn}}</td>
+                <td>
+                    <span ng-click="editBook(book)" class="btn btn-primary">Edit</span>
+                    <span ng-click="deleteBook(book)" class="btn btn-danger">Delete</span>
+                </td>
+            </tr>
+
+        </table>
+    </div>
+
+    <!--div ng-click="AddBookDiv()" class="btn btn-default">
+        Add Book
+    </div>
+
+    <div ng-show="divBook">
+        <p class="divHead"></p>
+    </div-->
+
+    <!-- Ejemplo de adicionar libro con modal -->
+    <button ng-click="AddBookModal()" class="btn btn-default">Adicionar Libro</button>
+    <modal title="Nuevo Libro" visible="showBookModal">
+        <!--form role="form" action="/Home/AddOrUpdate"-->
+            <table class="table">
+                <tr>
+                    <td><b><i>{{Action}} Book</i></b></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td><b>Id</b></td>
+                    <td><input type="text" disabled="disabled" ng-model="bookId" /></td>
+                    <td><b>Title</b></td>
+                    <td><input type="text" ng-model="bookTitle" name="bookTitle" /></td>
+                </tr>
+                <tr>
+                    <td><b>Author</b></td>
+                    <td><input type="text" ng-model="bookAuthor" name="bookAuthor" /></td>
+                    <td><b>Publisher</b></td>
+                    <td><input type="text" ng-model="bookPublisher" name="bookPublisher" /></td>
+                </tr>
+                <tr>
+                    <td><b>Isbn</b></td>
+                    <td><input type="text" ng-model="bookIsbn" name="bookIsbn" /></td>
+                    <td></td>
+                    <td>
+                        <input type="button" class="btn btn-default" value="Salvar" ng-click="AddUpdateBook()" />
+                        <input type="button" class="btn btn-danger" value="Cancelar" ng-click="toggleBookModal()" />
+                        <button type="submit">Click</button>
+                    </td>
+                </tr>
+            </table>
+        <!--/form-->
+    </modal>
+
+</div>
+
+<!--Ejemplo de dialogo modal
+<div ng-controller="MainCtrl" class="container">
+    <h1>Modal example</h1>
+    <button ng-click="toggleModal()" class="btn btn-default">Open modal</button>
+
+    <modal title="Login form" visible="showModal">
+        <form role="form">
+            <div class="form-group">
+                <label for="email">Email address</label>
+                <input type="email" class="form-control" id="email" placeholder="Enter email" />
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" class="form-control" id="password" placeholder="Password" />
+            </div>
+            <button type="submit" class="btn btn-default">Submit</button>
+        </form>
+    </modal>
+</div>
+-->
