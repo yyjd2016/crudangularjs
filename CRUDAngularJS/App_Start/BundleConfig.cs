@@ -29,10 +29,16 @@ namespace CRUDAngularJS
                 "~/Scripts/angular.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/customJS").Include(
-                     "~/Scripts/BookScripts/Module.js",
-                     "~/Scripts/BookScripts/Service.js",
-                     "~/Scripts/BookScripts/Controller.js"));
+                // Application files 
+                "~/app/app.js",
+                "~/app/mvccrud/mvccrudCtrl.js",
+                "~/app/country/countryCtrl.js",
 
+                // Application Services
+                "~/app/services/Book.js",
+
+                // Application Directives
+                "~/app/directives/modal.js"));
         }
     }
 }
